@@ -6,11 +6,16 @@ class UsersController < ApplicationController
   def create
     @user = User.create user_params
     if @user.save
-      flash[:sucsess] = t("signin_success_mess")
+      log_in @user
+      flash[:sucsess] = t "signup_success_mess" 
       redirect_to root_path
     else 
       render :new
     end
+  end
+
+  def show
+    @user = User.find params[:id]
   end
 
   private
