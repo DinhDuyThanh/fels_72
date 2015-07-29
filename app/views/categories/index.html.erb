@@ -6,3 +6,15 @@
   </select>
   <button type="button" class="btn btn-success">Learn</button>
 </div>
+<% @categories.each do |category| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= category.name %></h3>
+    </div>
+   <div class="panel-body">
+       <div class="categories-word-<%= category.id %>">
+        	<%= render category.words %>
+        </div>
+    </div>
+</div>
+<% end %>

@@ -10,7 +10,16 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-ActiveRecord::Schema.define(version: 20150728071741) do
+
+ActiveRecord::Schema.define(version: 20150729071125) do
+
+  create_table "answers", force: :cascade do |t|
+    t.text     "content",    limit: 65535
+    t.boolean  "true",       limit: 1
+    t.integer  "word_id",    limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.text     "name",        limit: 65535
@@ -18,6 +27,24 @@ ActiveRecord::Schema.define(version: 20150728071741) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "lessons", force: :cascade do |t|
+    t.text     "name",        limit: 65535
+    t.integer  "user_id",     limit: 4
+    t.integer  "category_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.integer  "word_id",     limit: 4
+    t.integer  "lession_id",  limit: 4
+    t.integer  "category_id", limit: 4
+    t.integer  "answer_id",   limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name",            limit: 255
     t.string   "email",           limit: 255
