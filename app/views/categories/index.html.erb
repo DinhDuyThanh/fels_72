@@ -1,0 +1,8 @@
+<div class="categories">
+  <select class="form-control">
+    <% @categories.each do |category| %>
+      <option value="one"><%= category.name %></option>
+    <% end %>
+  </select>
+  <button type="button" class="btn btn-success">Learn</button>
+</div>
