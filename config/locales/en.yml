@@ -20,3 +20,7 @@ en:
   new_user: "New user?"
   profile_update: "Profile updated"
   login_warning: "Please log in."
+  follow: "Follow"
+  unfollow: "Unfollow"
+  following: "Following"
+  follower: "Followers"
