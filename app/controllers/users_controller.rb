@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :verify_user!, only: [:edit, :update]
+  before_action :verify_user!, only: [:edit, :update, :show]
   before_action :find_user, only: [:edit, :update, :show]
 
   def new
@@ -37,13 +37,6 @@ class UsersController < ApplicationController
     params.require(:user).permit :name, :email, :password,
       :password_confirmation
   end
-
-  def verify_user!
-    unless logged_in?
-      flash[:danger] = t "login_warning"
-      redirect_to login_url
-    end
-  end  
 
   def find_user
     @user = User.find params[:id] 

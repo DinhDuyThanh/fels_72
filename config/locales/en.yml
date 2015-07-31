@@ -22,5 +22,5 @@ en:
   login_warning: "Please log in."
   follow: "Follow"
   unfollow: "Unfollow"
-  following: "Following"
-  follower: "Followers"
+  followings: "Following"
+  followers: "Followers"
