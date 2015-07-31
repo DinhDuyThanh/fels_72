@@ -1,7 +1,13 @@
 5.times do
   name = Faker::Lorem.sentence(5)
   description = Faker::Lorem.sentence(5)
-  Category.create!(name: name, description: description) 
+  Category.create! name: name, description: description
+end
+
+categories = Category.order(:created_at).take(5)
+20.times do
+  content = Faker::Lorem.sentence(5)
+  categories.each {|category| category.words.create! content: content}
 end
 
 User.create!(name:  "Example User",

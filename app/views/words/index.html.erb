@@ -1,11 +1,3 @@
-<div class="categories">
-  <select class="form-control">
-    <% @categories.each do |category| %>
-      <option value="one"><%= category.name %></option>
-    <% end %>
-  </select>
-  <button type="button" class="btn btn-success">Learn</button>
-</div>
 <% @categories.each do |category| %>
   <div class="panel panel-default">
     <div class="panel-heading">
