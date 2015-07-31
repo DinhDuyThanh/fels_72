@@ -11,13 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150730030043) do
+ActiveRecord::Schema.define(version: 20150730083640) do
+
+  create_table "activities", force: :cascade do |t|
+    t.text     "description", limit: 65535
+    t.integer  "user_id",     limit: 4
+    t.integer  "target_id",   limit: 4
+    t.string   "type",        limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.string   "content",    limit: 255
+    t.boolean  "correct",    limit: 1
+    t.integer  "word_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.text     "name",        limit: 65535
     t.text     "description", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.integer  "user_id",     limit: 4
+    t.integer  "category_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -30,6 +55,15 @@ ActiveRecord::Schema.define(version: 20150730030043) do
   add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
+
+  create_table "results", force: :cascade do |t|
+    t.integer  "lesson_id",   limit: 4
+    t.integer  "category_id", limit: 4
+    t.integer  "answer_id",   limit: 4
+    t.integer  "word_id",     limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",            limit: 255
