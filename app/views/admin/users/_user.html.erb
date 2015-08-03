@@ -1,0 +1,9 @@
+<li>
+  <%= link_to user.name, user %>
+  | <%= link_to t("delete"), [:admin, user], method: :delete,
+    data: {confirm: t("confirm")} %>
+  <% unless user.admin? %>
+  | <%= link_to t("set_admmin"), [:admin, user], method: :patch,
+    data: {confirm: t("confirm")} %>
+  <% end %>
+</li>
