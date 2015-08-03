@@ -302,18 +302,21 @@ aside{
   padding: 0;
 }
 
-
 .categories {
-   margin-left: 30%;
+  margin-left: 30%;
+  .radio{
+    width:300px;
+  }
   .form-control{
     display: inline;
     width: 300px; 
-  }
-  .btn {
-    width: 100px;
   }
 }
 
 .learn-form {
   margin: 10% 20%;
+}
+
+.answer {
+ color: blue;
 }
