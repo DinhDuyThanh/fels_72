@@ -1,6 +1,6 @@
 en:
   logo: "E-learning System "
-  pass_confirm: "Confirmation"
+  confirm: "Are you sure?"
   account_submit: "Create my account"
   signup_title: "Sign up"
   home_title: "Welcome to E-learning System"
@@ -26,4 +26,14 @@ en:
   followers: "Followers" 
   start_lesson: "Start Lesson"
   word_list: "Word List"
- 
+  all_users: "All users"
+  permission_warning: "You don't have permission to access this page"
+  delete: "delete"
+  set_admmin: "SetAdmin"
+  danger: "Something went wrong!"
+  category_label: "Category:"
+  learned_label: "Learned"
+  notlearned_label: "Not Learned"
+  all_label: "All"
+  filter_button: "Filter"
+  pdf_button: "PDF"

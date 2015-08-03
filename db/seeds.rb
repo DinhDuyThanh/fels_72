@@ -10,15 +10,27 @@ categories = Category.order(:created_at).take(5)
   categories.each {|category| category.lessons.create! name: name}
 end
 
-30.times do
-  content = Faker::Lorem.sentence(2)
-  categories.each {|category| category.words.create! content: content}
+10.times do
+  categories.each do |category|
+    content = Faker::Lorem.sentence(2)
+    category.words.create! content: content
+  end
+end
+
+words = Word.all
+words.each do |word|
+  4.times do |i|
+    content = Faker::Lorem.sentence(2)
+    is_true = i>0 ? false : true
+    word.answers.create! content: content, correct: is_true
+  end
 end
 
 User.create!(name:  "Example User",
              email: "example@railstutorial.org",
              password: "foobar",
-             password_confirmation: "foobar"
+             password_confirmation: "foobar",
+             admin: true
             )
 
 99.times do |n|
@@ -28,7 +40,8 @@ User.create!(name:  "Example User",
   User.create!(name: name,
               email: email,
               password: password,
-              password_confirmation: password
+              password_confirmation: password,
+              admin: false
               )
 end
 

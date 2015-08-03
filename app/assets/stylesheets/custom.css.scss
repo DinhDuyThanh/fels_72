@@ -305,7 +305,7 @@ aside{
 
 .categories {
   margin-left: 30%;
-  .radio{
+  .type-select{
     width:300px;
   }
   .form-control{
@@ -319,4 +319,8 @@ aside{
 
 .learn-form {
   margin: 10% 20%;
+}
+
+.answer {
+  color: red;
 }

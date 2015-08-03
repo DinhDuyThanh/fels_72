@@ -1,12 +1,20 @@
-<%= form_for @word , remote: true do |f| %>
+<%= form_tag("/words", method: "post",  remote: true) do %>
   <div class="categories">
     <div class="filter-select">
-      <label>Category</label>
-     <%= f.select :category, Category.all.map { |m| [m.name, m.id] }, :class => 'form-control'%>
+      <%= label_tag(:category_id, t("category_label")) %>
+      <%= select_tag :category_id, options_from_collection_for_select(@categories, "id", "name"), :class => 'form-control'%>
+    </div>
+    <div calss="type-select">
+      <%= label_tag("type_learned", t("learned_label")) %>
+      <%= radio_button_tag "type", "learned", true %>
+      <%= label_tag("type_notlearned", t("notlearned_label")) %>
+      <%= radio_button_tag 'type', 'notlearned' %>
+      <%= label_tag("type_all", t("all_label")) %>
+      <%= radio_button_tag 'type', 'all' %>
     </div>
     <div class="button-select">
-      <%= f.submit "Filter", class: "btn btn-primary" %>
-      <%= f.submit "PDF", class: "btn btn-primary" %>
+      <%= submit_tag t("filter_button"), class: "btn btn-primary" %>
+      <%= submit_tag t("pdf_button"), class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>

@@ -1,0 +1,7 @@
+<% word.answer.each do %>
+<li id="answer-<%= answer.id %>">
+  <% if answer.correct == true %>
+    <span class="answer"><%= answer.content %></span>
+  <% end %>
+</li>
+<%end%>
