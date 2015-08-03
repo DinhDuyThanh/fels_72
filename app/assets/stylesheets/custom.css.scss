@@ -304,7 +304,10 @@ aside{
 
 
 .categories {
-   margin-left: 30%;
+  margin-left: 30%;
+  .radio{
+    width:300px;
+  }
   .form-control{
     display: inline;
     width: 300px; 

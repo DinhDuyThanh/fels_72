@@ -1,13 +1,15 @@
-<% @categories.each do |category| %>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= category.name %></h3>
+<%= form_for @word , remote: true do |f| %>
+  <div class="categories">
+    <div class="filter-select">
+      <label>Category</label>
+     <%= f.select :category, Category.all.map { |m| [m.name, m.id] }, :class => 'form-control'%>
     </div>
-    <div class="panel-body">
-      <div class="categories-word-<%= category.id %>">
-        <%= render category.words %>
-      </div>
+    <div class="button-select">
+      <%= f.submit "Filter", class: "btn btn-primary" %>
+      <%= f.submit "PDF", class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>
+<div class="word-list">
+</div>
 

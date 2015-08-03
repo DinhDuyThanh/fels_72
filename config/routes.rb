@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
   resources :categories, only: :index
-  resources :words, only: :index
+  resources :words
   resources :users do
     resources :followings, only: :index
     resources :followers, only: :index
