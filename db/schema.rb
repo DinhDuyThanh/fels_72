@@ -70,8 +70,9 @@ ActiveRecord::Schema.define(version: 20150730083640) do
     t.string   "email",           limit: 255
     t.string   "password_digest", limit: 255
     t.string   "avatar",          limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "admin",           limit: 1,   default: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.string   "remember_digest", limit: 255
   end
 
