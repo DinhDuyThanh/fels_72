@@ -37,3 +37,17 @@ en:
   all_label: "All"
   filter_button: "Filter"
   pdf_button: "PDF"
+  import_CSV_success_mess: "Products imported."
+  import_CSV_warning_mess: "Invalid CSV file format."
+  import_CSV_btn: "Import CSV"
+  admin:
+    word:
+      word: "Word"
+      answer1: "Answer1"
+      correct1: "Correct1"
+      answer2: "Answer2"
+      correct2: "Correct2"
+      answer3: "Answer3"
+      correct3: "Correct3"
+      answer4: "Answer4"
+      correct4: "Correct4"

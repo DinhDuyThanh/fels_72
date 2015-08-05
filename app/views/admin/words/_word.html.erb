@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <th><%= t(".word") %>|</th>
+      <th><%= t(".answer1") %>|</th>
+      <th><%= t(".correct1") %> |</th>
+      <th><%= t(".answer2") %>|</th>
+      <th><%= t(".correct2") %> |</th>
+      <th><%= t(".answer3") %>|</th>
+      <th><%= t(".correct3") %> |</th>
+      <th><%= t(".answer4") %>|</th>
+      <th><%= t(".correct4") %> |</th>
+    </tr>
+  </thead>
+  <thread>
+      <% @word.each do |word| %>
+      <tr>
+        <th><%= word.content %> |</th>
+        <% word.answers.each do |answer| %>
+          <th><%= answer.content %> |</th>
+          <th><%= answer.correct %> |</th>
+        <% end %>
+      </tr>
+    <% end %>
+ </thread>
+</table>
