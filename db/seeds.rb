@@ -7,6 +7,7 @@ end
 categories = Category.order(:created_at).take(5)
 10.times do
   name = Faker::Lorem.sentence(5)
+  description = Faker::Lorem.sentence(5)
   categories.each {|category| category.lessons.create! name: name}
 end
 
