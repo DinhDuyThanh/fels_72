@@ -4,6 +4,7 @@ class Word < ActiveRecord::Base
   
   has_many :results
   has_many :answers
+  accepts_nested_attributes_for :answers
 
   require "csv"
 

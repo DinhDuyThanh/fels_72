@@ -1,1 +1,35 @@
-<span class="word"><%= @lesson.name %></span>
+<div class="lesson">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h3 class="panel-title">Result</h3>
+    </div>
+    <div class="panel-body">
+      <span id="result"><%= @lesson.result %>/10</span>
+    </div>
+  </div>
+  <%= form_for @lesson do |lesson| %> 
+    <%= lesson.fields_for :words do |word| %>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <strong>Question <%= word.index + 1 %>: </strong>
+            <%= word.object.content %>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <ul class="word-answer-<%= word.object.id %>">
+            <%= word.fields_for :answers do |answer| %>
+              <li id="answer-<%= answer.object.id %>">
+                <%= answer.radio_button :correct  , answer.object.correct, checked: false%>
+                <span class="answer"><%= answer.object.content %></span>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+    <div class="button-select">
+      <%= submit_tag t("submit_label"), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
