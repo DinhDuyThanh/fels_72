@@ -1,3 +1,10 @@
 <li id="word-<%= word.id %>">
   <span class="word"><%= word.content %></span>
+  <% word.answers.each do |answer| %>
+    <% if answer.correct? %>
+      <li id="answer-<%= answer.id %>">
+      <span class="answer"><%= answer.content %></span>
+      </li>
+    <% end %>
+  <% end %>
 </li>

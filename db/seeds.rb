@@ -5,8 +5,13 @@
 end
 
 categories = Category.order(:created_at).take(5)
-20.times do
-  content = Faker::Lorem.sentence(5)
+10.times do
+  name = Faker::Lorem.sentence(5)
+  categories.each {|category| category.lessons.create! name: name}
+end
+
+30.times do
+  content = Faker::Lorem.sentence(2)
   categories.each {|category| category.words.create! content: content}
 end
 
