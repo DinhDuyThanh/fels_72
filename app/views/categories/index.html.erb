@@ -1,21 +1,20 @@
 <div class="categories">
-  <select class="form-control">
-    <% @categories.each do |category| %>
-      <option value="one"><%= category.name %></option>
-    <% end %>
-  </select>
-  <button type="button" class="btn btn-success">Learn</button>
-</div>
-<% @categories.each do |category| %>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= category.name %></h3>
-    </div>
-    <div class="panel-body">
-      <div class="categories-word-<%= category.id %>">
-        <%= render category.words %>
+  <% @categories.each do |category| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= category.name %></h3>
       </div>
-    </div>
-  </div>
-<% end %>
+      <div class="panel-body">
+        <div class="categories-description-<%= category.id %>">
+          <%= category.description %>
+        </div>
+        <div class="categories-lesson-<%= category.id %>">
+          <%= render category.lessons %>
+        </div>
+       </div>
+     </div>
+  <% end %>
+</div>  
+<div class="word-list">
+</div>
 
