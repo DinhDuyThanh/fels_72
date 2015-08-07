@@ -8,12 +8,11 @@
         <div class="categories-description-<%= category.id %>">
           <%= category.description %>
         </div>
-        <div class="categories-lesson-<%= category.id %>">
+        <ul class="list-group">
           <%= render category.lessons %>
-        </div>
-      </div>
+        </ul>
+       </div>
      </div>
   <% end %>
 </div>  
-<div class="word-list">
-</div>
+

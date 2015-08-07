@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150730083640) do
 
   create_table "lessons", force: :cascade do |t|
     t.string   "name",        limit: 255
+    t.integer  "result",      limit: 4
     t.integer  "user_id",     limit: 4
     t.integer  "category_id", limit: 4
     t.datetime "created_at",              null: false

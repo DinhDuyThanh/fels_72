@@ -4,16 +4,30 @@
   Category.create! name: name, description: description
 end
 
-categories = Category.order(:created_at).take(5)
-10.times do
-  name = Faker::Lorem.sentence(5)
-  description = Faker::Lorem.sentence(5)
-  categories.each {|category| category.lessons.create! name: name, description: description}
+categories = Category.all
+categories.each do |category|
+  5.times do
+    name = Faker::Lorem.sentence(5)
+    description = Faker::Lorem.sentence(5)
+    category.lessons.create! name: name
+  end
 end
 
-30.times do
-  content = Faker::Lorem.sentence(2)
-  categories.each {|category| category.words.create! content: content}
+lessons = Lesson.all
+lessons.each do |lesson|
+  10.times do
+    content = Faker::Lorem.sentence(2)
+    lesson.words.create! content: content, category_id: lesson.category_id
+  end
+end
+
+words = Word.all
+words.each do |word|
+  4.times do |i|
+    correct = i > 0 ? false : true
+    content = Faker::Lorem.sentence(2)
+    word.answers.create! content: content, correct: correct
+  end
 end
 
 User.create!(name:  "Example User",

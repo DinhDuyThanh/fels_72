@@ -320,3 +320,10 @@ aside{
 .answer {
  color: blue;
 }
+
+.lesson {
+  li {
+    display: inline;
+    list-style-type: none;
+  }
+}
