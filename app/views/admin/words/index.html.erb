@@ -1,0 +1,9 @@
+<%= flash[:notice] %>
+<div>
+  <h3>Import a CSV File</h3>
+    <%= form_tag admin_words_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag t("import_CSV_btn") %>
+    <% end %>
+      <%= render "word" %>
+</div>

@@ -3,7 +3,7 @@ class CreateWords < ActiveRecord::Migration
     create_table :words do |t|
       t.text :content
       t.integer :category_id
-      t.integer :lession_id
+      t.integer :lesson_id
 
       t.timestamps null: false
     end

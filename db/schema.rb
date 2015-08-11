@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20150730083640) do
   create_table "words", force: :cascade do |t|
     t.text     "content",     limit: 65535
     t.integer  "category_id", limit: 4
-    t.integer  "lession_id",  limit: 4
+    t.integer  "lesson_id",   limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
