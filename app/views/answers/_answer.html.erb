@@ -1,4 +1,15 @@
 <li id="answer-<%= answer.id %>">
-  <%= radio_button_tag answer.word.id, answer.correct %>
+  <% if answer.correct %>
+    <%= hidden_field_tag "answer_id"+answer.word.id.to_s , answer.id  %>
+  <% end %>
+  <% if !answer.word.result.nil? %>
+    <% if answer.word.result.answer_id == answer.id %>
+      <%= radio_button_tag answer.word.id, answer.id, true %>
+     <% else %> 
+      <%= radio_button_tag answer.word.id, answer.id %>
+    <% end %>
+  <% else %> 
+      <%= radio_button_tag answer.word.id, answer.id %>
+  <% end %>
   <span class="answer"><%= answer.content %></span>
 </li>

@@ -4,13 +4,21 @@
       <h3 class="panel-title">Result</h3>
     </div>
     <div class="panel-body">
-      <span id="result">0/10</span>
+      <span id="result"><%= @lesson.result %>/10</span>
     </div>
   </div>
-  <%= form_tag lessons_path, remote: true do %> 
+  <%= form_tag lessons_path do %> 
     <%= hidden_field_tag :id, nil, value: @lesson.id %>
     <% @lesson.words.each do |word| %>
-      <div class="panel panel-primary">
+      <% if !word.result.nil? %>
+        <% if word.result.answer_id == word.answers.select{|answer| answer.correct}.first.id %>
+          <div class="panel panel-success">
+        <% else %>
+          <div class="panel panel-danger">
+        <% end %>
+      <% else %>
+          <div class="panel panel-primary">
+      <% end %>
         <div class="panel-heading">
           <h3 class="panel-title">
             <strong>Question <%= word.id %>: </strong>
