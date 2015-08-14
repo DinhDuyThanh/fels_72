@@ -2,10 +2,9 @@ class Word < ActiveRecord::Base
   belongs_to :category
   belongs_to :lesson
   
-  has_many :results
+  has_one :result
   has_many :answers
   accepts_nested_attributes_for :answers
-
   require "csv"
 
   def self.import(file)

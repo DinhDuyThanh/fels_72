@@ -13,9 +13,19 @@ class LessonsController < ApplicationController
 
   def update
     @result = 0
+    @tmp = 0
     lesson_params[:words_attributes].each do |k,v|
       show_answer_attributes(k).each do |k1,v1|
         @result += 1 if is_true?(v1[:correct])
+        if !v1[:correct].nil?
+          @result_tmp = Result.find_by_word_id(v[:id])
+          if  @result_tmp.nil?
+            Result.create! word_id: v[:id], lesson_id: params[:id], answer_id: v1[:id]
+          else
+            @result_tmp.answer_id = v1[:id]
+            @result_tmp.save
+          end
+        end
       end
     end
     @lesson = Lesson.find params[:id]
